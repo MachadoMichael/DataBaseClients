@@ -20,34 +20,57 @@ export const Home = () => {
 
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
+  const [registredUsers, setRegistredUsers] = useState(userList);
 
-  const { status, checkingRegister } = useContext(LoginContext);
-  console.warn(checkingRegister);
-  
+  const { status, setStatus } = useContext(LoginContext);
+
+  const checkingRegister = () => {
+    registredUsers.map((register) => {
+      if (user === register.user && password === register.password) {
+        setStatus(true);
+      } else {
+        alert("User or Password is wrong");
+      }
+    });
+  };
 
   return (
-    <ImageBackground
-      source={{
-        uri: "https://st3.depositphotos.com/4478807/36255/i/600/depositphotos_362555846-stock-photo-network-structure-between-people-data.jpg",
-      }}
-      style={container}
-    >
-      <SafeAreaView style={containerInputs}>
-        <InputRegistration
-          label={"User"}
-          state={user}
-          setState={setUser}
-        ></InputRegistration>
-        <InputRegistration
-          label={"Password"}
-          state={password}
-          setState={setPassword}
-        ></InputRegistration>
-      </SafeAreaView>
-
-      <Pressable style={button} onPress={() => alert("ada")}>
-        <Text style={buttonText}>Enter</Text>
-      </Pressable>
-    </ImageBackground>
+    <>
+      <ImageBackground
+        source={{
+          uri: "https://st3.depositphotos.com/4478807/36255/i/600/depositphotos_362555846-stock-photo-network-structure-between-people-data.jpg",
+        }}
+        style={container}
+      >
+        <SafeAreaView style={containerInputs}>
+          {status === false ? (
+            <>
+              <InputRegistration
+                label={"User"}
+                state={user}
+                setState={setUser}
+              ></InputRegistration>
+              <InputRegistration
+                label={"Password"}
+                state={password}
+                setState={setPassword}
+              ></InputRegistration>
+            </>
+          ) : (
+            <Text style={buttonText}>Welcome {user}</Text>
+          )}
+        </SafeAreaView>
+        <Pressable
+          style={button}
+          onPress={() =>
+            status === false ? checkingRegister() : setStatus(false)
+          }
+        >
+          <Text style={buttonText}>
+            {status === false ? "Conect" : "Disconect"}
+          </Text>
+        </Pressable>
+      </ImageBackground>
+    </>
   );
 };

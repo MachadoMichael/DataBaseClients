@@ -23,7 +23,10 @@ export const InputRegistration = ({ label, state, setState }: Props) => {
       <TextInput
         style={inputs}
         value={state}
-        onChangeText={(e) => setState(e)}
+        onChangeText={(e) => {
+          console.warn(e);
+          setState(e)
+        }}
       ></TextInput>
     </View>
   );

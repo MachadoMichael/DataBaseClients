@@ -1,34 +1,39 @@
 import React, { createContext, useState } from "react";
-import { userList } from "../data/userList";
-
-type Props = {
-  user: string;
-  password: string;
-};
+import { clientList as list } from "../data/clientList";
 
 type LoginContextType = {
   status: boolean;
-  checkingRegister: any;
+  setStatus: React.Dispatch<React.SetStateAction<boolean>>;
+  clientList: {
+    name: string;
+    phone: string;
+    adress: string;
+    email: string;
+  }[];
+  setClientList: React.Dispatch<
+    React.SetStateAction<
+      {
+        name: string;
+        phone: string;
+        adress: string;
+        email: string;
+      }[]
+    >
+  >;
 };
 
 export const LoginContext = createContext({} as LoginContextType);
 
 export const LoginProvider = (props: any) => {
-  const [status, useStatus] = useState(false);
-  const [registredUsers, setRegistredUsers] = useState(userList);
+  const [status, setStatus] = useState(false);
+  const [clientList, setClientList] = useState(list);
 
-  const checkingRegister = ({ user, password }: Props) => {
-    registredUsers.map((register) => {
-      if (user === register.user && password === register.password) {
-        useState(true);
-      } else {
-        alert("User or Password is wrong");
-      }
-    });
-  };
+  console.warn(status);
 
   return (
-    <LoginContext.Provider value={{ status, checkingRegister }}>
+    <LoginContext.Provider
+      value={{ status, setStatus, clientList, setClientList }}
+    >
       {props.children}
     </LoginContext.Provider>
   );

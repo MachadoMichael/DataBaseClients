@@ -1,8 +1,9 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Home } from "../views/Home";
-import { Login } from "../views/Login";
+
 import { RegisterForm } from "../views/RegisterForm";
+import { ClientListPainel } from "../views/ClientListPainel";
 
 const { Screen, Navigator } = createDrawerNavigator();
 export const DrawerRoutes = () => {
@@ -17,19 +18,19 @@ export const DrawerRoutes = () => {
         }}
       />
       <Screen
-        name="Login"
-        component={Login}
-        options={{
-          drawerLabel: "Login",
-          drawerIcon: () => <MaterialIcons name="login" size={22} />,
-        }}
-      />
-      <Screen
         name="RegisterForm"
         component={RegisterForm}
         options={{
           drawerLabel: "Registration",
           drawerIcon: () => <MaterialIcons name="app-registration" size={22} />,
+        }}
+      />
+      <Screen
+        name="ClientListPainel"
+        component={ClientListPainel}
+        options={{
+          drawerLabel: "Client List",
+          drawerIcon: () => <MaterialIcons name="people" size={22} />,
         }}
       />
     </Navigator>

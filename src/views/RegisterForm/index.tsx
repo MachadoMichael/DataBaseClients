@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   View,
   SafeAreaView,
@@ -11,17 +11,39 @@ import {
 import { styles } from "./styles";
 import { InputRegistration } from "../../components/InputRegistration";
 import { useNavigation } from "@react-navigation/native";
+import { LoginContext } from "../../context/LoginContext";
 
 export const RegisterForm = () => {
   const { container, form, button, buttonText } = styles;
   const { navigate } = useNavigation();
+  const { status, setStatus, clientList, setClientList } =
+    useContext(LoginContext);
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [adress, setAdress] = useState("");
   const [email, setEmail] = useState("");
-  const [user, setUser] = useState("");
-  const [password, setPassword] = useState("");
+
+  const resetValue = () => {
+    setName("");
+    setPhone("");
+    setAdress("");
+    setEmail("");
+  };
+
+  const createNewClient = () => {
+    let newClientList = [...clientList];
+    newClientList.push({
+      name: name,
+      phone: phone,
+      adress: adress,
+      email: email,
+    });
+
+    setClientList(newClientList);
+    alert(`O cliente ${name} foi registrado com sucesso`);
+    resetValue();
+  };
 
   return (
     <ImageBackground
@@ -35,15 +57,9 @@ export const RegisterForm = () => {
         <InputRegistration label="Phone" state={phone} setState={setPhone} />
         <InputRegistration label="Adress" state={adress} setState={setAdress} />
         <InputRegistration label="Email" state={email} setState={setEmail} />
-        <InputRegistration label="User" state={user} setState={setUser} />
-        <InputRegistration
-          label="Password"
-          state={password}
-          setState={setPassword}
-        />
       </SafeAreaView>
 
-      <Pressable style={button} onPress={() => navigate("Login")}>
+      <Pressable style={button} onPress={createNewClient}>
         <Text style={buttonText}>Register</Text>
       </Pressable>
     </ImageBackground>

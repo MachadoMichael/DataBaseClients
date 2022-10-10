@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  form: {
+  clientsContainer: {
     width: 380,
     backgroundColor: "rgb(15,65,115)",
     justifyContent: "center",
@@ -16,16 +16,28 @@ export const styles = StyleSheet.create({
     padding: 30,
   },
 
-  button: {
+  clientContainer: {
     width: 380,
     height: 50,
     backgroundColor: "rgb(155,55,55)",
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
+    flexDirection: "row",
+    borderWidth: 1,
+    borderColor: "black",
+    marginBottom: 2,
   },
 
-  buttonText: {
-    color: "white",
-    fontSize: 30,
+  controllers: {
+    flexDirection: "row",
+  },
+
+  button: {
+    marginRight: 5,
+  },
+
+  clientName: {
+    fontSize: 20,
+    marginLeft: 10,
   },
 });
