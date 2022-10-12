@@ -9,10 +9,12 @@ export const styles = StyleSheet.create({
   button: {
     justifyContent: "center",
     alignItems: "center",
-    width: 200,
+    width: 380,
     height: 60,
     backgroundColor: "rgb(155,55,55)",
-    marginTop: 10,
+    borderRadius: 4,
+
+    borderWidth: 1,
   },
   buttonText: {
     color: "white",
@@ -24,5 +26,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "rgb(15,65,115)",
+    borderRadius: 4,
+    borderWidth: 1,
   },
 });

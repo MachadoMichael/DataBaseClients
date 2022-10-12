@@ -2,31 +2,33 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "rgb(15,65,115)",
+    marginBottom: 10,
+    borderWidth: 1,
+    borderRadius: 4,
   },
 
-  form: {
-    width: 380,
-    backgroundColor: "rgb(15,65,115)",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 4,
-    padding: 30,
+  msg: {
+    fontSize: 30,
+    padding: 50,
+    textAlign: "center",
+    color: "#E1E1E6",
   },
 
   button: {
-    width: 380,
+    width: 370,
     height: 50,
-    backgroundColor: "rgb(155,55,55)",
+    backgroundColor: "brown",
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 4,
+    borderWidth: 1,
   },
 
   buttonText: {
-    color: "white",
-    fontSize: 30,
+    fontSize: 26,
+    color: "#E1E1E6",
   },
 });

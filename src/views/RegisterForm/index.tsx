@@ -10,14 +10,14 @@ import {
 } from "react-native";
 import { styles } from "./styles";
 import { InputRegistration } from "../../components/InputRegistration";
-import { useNavigation } from "@react-navigation/native";
+
 import { LoginContext } from "../../context/LoginContext";
+import { NoUserConnected } from "../../components/NoUserConnected/Index";
 
 export const RegisterForm = () => {
   const { container, form, button, buttonText } = styles;
-  const { navigate } = useNavigation();
-  const { status, setStatus, clientList, setClientList } =
-    useContext(LoginContext);
+
+  const { status, clientList, setClientList } = useContext(LoginContext);
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -52,16 +52,34 @@ export const RegisterForm = () => {
       }}
       style={container}
     >
-      <SafeAreaView style={form}>
-        <InputRegistration label="Name" state={name} setState={setName} />
-        <InputRegistration label="Phone" state={phone} setState={setPhone} />
-        <InputRegistration label="Adress" state={adress} setState={setAdress} />
-        <InputRegistration label="Email" state={email} setState={setEmail} />
-      </SafeAreaView>
+      {status === true ? (
+        <>
+          <SafeAreaView style={form}>
+            <InputRegistration label="Name" state={name} setState={setName} />
+            <InputRegistration
+              label="Phone"
+              state={phone}
+              setState={setPhone}
+            />
+            <InputRegistration
+              label="Adress"
+              state={adress}
+              setState={setAdress}
+            />
+            <InputRegistration
+              label="Email"
+              state={email}
+              setState={setEmail}
+            />
+          </SafeAreaView>
 
-      <Pressable style={button} onPress={createNewClient}>
-        <Text style={buttonText}>Register</Text>
-      </Pressable>
+          <Pressable style={button} onPress={createNewClient}>
+            <Text style={buttonText}>Register</Text>
+          </Pressable>
+        </>
+      ) : (
+        <NoUserConnected />
+      )}
     </ImageBackground>
   );
 };

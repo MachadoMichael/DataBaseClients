@@ -28,8 +28,6 @@ export const LoginProvider = (props: any) => {
   const [status, setStatus] = useState(false);
   const [clientList, setClientList] = useState(list);
 
-  console.warn(status);
-
   return (
     <LoginContext.Provider
       value={{ status, setStatus, clientList, setClientList }}

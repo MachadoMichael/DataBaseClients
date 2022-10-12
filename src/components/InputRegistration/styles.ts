@@ -1,12 +1,12 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  boxInput: {
+  containerInput: {
     flexDirection: "row",
     justifyContent: "flex-end",
     width: 300,
-    marginBottom: 5,
-    // backgroundColor: "black",
+    marginBottom: 3,
+    marginTop: 3,
   },
 
   labelstyle: {
@@ -19,5 +19,7 @@ export const styles = StyleSheet.create({
     height: 30,
     backgroundColor: "white",
     marginLeft: 20,
+    borderRadius: 4,
+    borderWidth: 2,
   },
 });

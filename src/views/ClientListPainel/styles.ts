@@ -16,6 +16,18 @@ export const styles = StyleSheet.create({
     padding: 30,
   },
 
+  clientContainerBigger: {
+    width: 380,
+    height: 200,
+    backgroundColor: "rgb(55,55,155)",
+    justifyContent: "space-between",
+    borderWidth: 4,
+    borderColor: "black",
+    marginBottom: 2,
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
+
   clientContainer: {
     width: 380,
     height: 50,
@@ -30,6 +42,7 @@ export const styles = StyleSheet.create({
 
   controllers: {
     flexDirection: "row",
+    justifyContent: "space-between",
   },
 
   button: {
@@ -39,5 +52,12 @@ export const styles = StyleSheet.create({
   clientName: {
     fontSize: 20,
     marginLeft: 10,
+    color: "white",
+  },
+
+  dataText: {
+    fontSize: 16,
+    marginLeft: 10,
+    color: "white",
   },
 });

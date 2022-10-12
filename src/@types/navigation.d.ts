@@ -3,7 +3,7 @@ import { ClientListPainel } from "./../views/ClientListPainel/index";
 export declare global {
   namespace ReactNavigation {
     interface RootParamList {
-      Home: undefined;
+      Homepage: undefined;
       RegisterForm: undefined;
       ClientListPainel: undefined;
     }

@@ -16,16 +16,15 @@ type Props = {
 };
 
 export const InputRegistration = ({ label, state, setState }: Props) => {
-  const { inputs, labelstyle, boxInput } = styles;
+  const { inputs, labelstyle, containerInput } = styles;
   return (
-    <View style={boxInput}>
+    <View style={containerInput}>
       <Text style={labelstyle}>{label}</Text>
       <TextInput
         style={inputs}
         value={state}
         onChangeText={(e) => {
-          console.warn(e);
-          setState(e)
+          setState(e.toLowerCase())
         }}
       ></TextInput>
     </View>

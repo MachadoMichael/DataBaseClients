@@ -35,44 +35,40 @@ export const Home = () => {
   };
 
   return (
-    <>
-      <ImageBackground
-        source={{
-          uri: "https://st3.depositphotos.com/4478807/36255/i/600/depositphotos_362555846-stock-photo-network-structure-between-people-data.jpg",
-        }}
-        style={container}
+    <ImageBackground
+      source={{
+        uri: "https://st3.depositphotos.com/4478807/36255/i/600/depositphotos_362555846-stock-photo-network-structure-between-people-data.jpg",
+      }}
+      style={container}
+    >
+      <SafeAreaView style={containerInputs}>
+        {status === false ? (
+          <>
+            <InputRegistration
+              label={"User"}
+              state={user}
+              setState={setUser}
+            ></InputRegistration>
+            <InputRegistration
+              label={"Password"}
+              state={password}
+              setState={setPassword}
+            ></InputRegistration>
+          </>
+        ) : (
+          <Text style={buttonText}>Welcome {user}</Text>
+        )}
+      </SafeAreaView>
+      <Pressable
+        style={button}
+        onPress={() =>
+          status === false ? checkingRegister() : setStatus(false)
+        }
       >
-        <SafeAreaView style={containerInputs}>
-          {status === false ? (
-            <>
-              <InputRegistration
-                label={"User"}
-                state={user}
-                setState={setUser}
-              ></InputRegistration>
-              <InputRegistration
-                label={"Password"}
-                state={password}
-                setState={setPassword}
-              ></InputRegistration>
-            </>
-          ) : (
-            <Text style={buttonText}>Welcome {user}</Text>
-          )}
-        </SafeAreaView>
-        <Pressable
-          style={button}
-          onPress={() =>
-            status === false ? checkingRegister() : setStatus(false)
-          }
-        >
-          <Text style={buttonText}>
-            {status === false ? "Conect" : "Disconect"}
-          </Text>
-        </Pressable>
-      </ImageBackground>
-    </>
+        <Text style={buttonText}>
+          {status === false ? "Conect" : "Disconect"}
+        </Text>
+      </Pressable>
+    </ImageBackground>
   );
 };
-
-// XXXXXXXX
