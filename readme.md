@@ -10,9 +10,7 @@ Após a validação, abre-se a possiblidade de navegar nas demais rotas que são
 
 Na rota de registro temos, até então, quatro inputs. Sendo eles: **_Name_**, **_Phone_**, **_Adress_**, **_Email_** e também um botão que efetua o registro. Ao efetuar o cadastro de um cliente um alerta é exibido dizendo que o client **NOMEDOCLIENT** foi registrado com sucesso.
 
-Já na rota "Client List" podemos editar dados e apagar os clientes registrados.
-
-<br>
+Já na rota "Client List" temos uma lista de clients exibindo o nome de cada um deles e dois botões. No botão editar expandimos o input e exibimos os outros dados, além é claro de possibilitar a edição dos dados. No icone de lixeira podemos excluir o client.
 
 #
 
