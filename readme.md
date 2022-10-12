@@ -12,7 +12,6 @@ Na rota de registro temos, até então, quatro inputs. Sendo eles: **_Name_**, *
 
 Já na rota "Client List" temos uma lista de clients exibindo o nome de cada um deles e dois botões. No botão editar expandimos o input e exibimos os outros dados, além é claro de possibilitar a edição dos dados. No icone de lixeira podemos excluir o client.
 
-#
 
 ## **_Recursos_**
 
