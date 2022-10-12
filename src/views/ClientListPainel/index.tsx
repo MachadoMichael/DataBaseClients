@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import {
   View,
-  SafeAreaView,
+  ScrollView,
   TextInput,
   Text,
   Pressable,
@@ -28,6 +28,7 @@ export const ClientListPainel = () => {
     button,
     clientName,
     dataText,
+    scrollArea
   } = styles;
 
   const { status, clientList, setClientList } = useContext(LoginContext);
@@ -142,7 +143,9 @@ export const ClientListPainel = () => {
       style={container}
     >
       {status === true ? (
-        <>{[ChoiceClientStructure, OthersClientsStructure]}</>
+        <ScrollView style={scrollArea}>
+          {[ChoiceClientStructure, OthersClientsStructure]}
+        </ScrollView>
       ) : (
         <NoUserConnected />
       )}

@@ -26,7 +26,7 @@ export const Home = () => {
 
   const checkingRegister = () => {
     registredUsers.map((register) => {
-      if (user === register.user && password === register.password) {
+      if (user.toLowerCase() === register.user && password === register.password) {
         setStatus(true);
       } else {
         alert("User or Password is wrong");
@@ -48,11 +48,13 @@ export const Home = () => {
               label={"User"}
               state={user}
               setState={setUser}
+              placeHolder="Type your user"
             ></InputRegistration>
             <InputRegistration
               label={"Password"}
               state={password}
               setState={setPassword}
+              placeHolder="******"
             ></InputRegistration>
           </>
         ) : (
@@ -66,7 +68,7 @@ export const Home = () => {
         }
       >
         <Text style={buttonText}>
-          {status === false ? "Conect" : "Disconect"}
+          {status === false ? "Connect" : "Disconect"}
         </Text>
       </Pressable>
     </ImageBackground>

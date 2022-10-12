@@ -20,6 +20,6 @@ export const styles = StyleSheet.create({
     backgroundColor: "white",
     marginLeft: 20,
     borderRadius: 4,
-    borderWidth: 2,
+    paddingLeft: 10,
   },
 });

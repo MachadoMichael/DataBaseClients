@@ -12,20 +12,20 @@ export const styles = StyleSheet.create({
     backgroundColor: "rgb(15,65,115)",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 2,
+    borderRadius: 4,
     padding: 30,
   },
 
   clientContainerBigger: {
     width: 380,
     height: 200,
-    backgroundColor: "rgb(55,55,155)",
+    backgroundColor: "rgb(15,65,115)",
     justifyContent: "space-between",
-    borderWidth: 4,
-    borderColor: "black",
+    borderWidth: 1,
     marginBottom: 2,
     paddingTop: 10,
     paddingBottom: 10,
+    borderRadius: 4,
   },
 
   clientContainer: {
@@ -59,5 +59,9 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     marginLeft: 10,
     color: "white",
+  },
+
+  scrollArea: {
+    marginTop: 10,
   },
 });

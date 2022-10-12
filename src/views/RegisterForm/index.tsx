@@ -1,13 +1,5 @@
 import React, { useState, useContext } from "react";
-import {
-  View,
-  SafeAreaView,
-  TextInput,
-  Text,
-  Button,
-  Pressable,
-  ImageBackground,
-} from "react-native";
+import { SafeAreaView, Text, Pressable, ImageBackground } from "react-native";
 import { styles } from "./styles";
 import { InputRegistration } from "../../components/InputRegistration";
 
@@ -32,17 +24,27 @@ export const RegisterForm = () => {
   };
 
   const createNewClient = () => {
-    let newClientList = [...clientList];
-    newClientList.push({
-      name: name,
-      phone: phone,
-      adress: adress,
-      email: email,
-    });
+    if (
+      name !== "" &&
+      phone !== "" &&
+      adress !== "" &&
+      email.includes("@") &&
+      email.includes(".com")
+    ) {
+      let newClientList = [...clientList];
+      newClientList.push({
+        name: name,
+        phone: phone,
+        adress: adress,
+        email: email,
+      });
 
-    setClientList(newClientList);
-    alert(`O cliente ${name} foi registrado com sucesso`);
-    resetValue();
+      setClientList(newClientList);
+      alert(`The client ${name} has been registred with success`);
+      resetValue();
+    } else {
+      alert(`Review the fields`);
+    }
   };
 
   return (
@@ -55,21 +57,29 @@ export const RegisterForm = () => {
       {status === true ? (
         <>
           <SafeAreaView style={form}>
-            <InputRegistration label="Name" state={name} setState={setName} />
+            <InputRegistration
+              label="Name"
+              state={name}
+              setState={setName}
+              placeHolder="Jane Doe"
+            />
             <InputRegistration
               label="Phone"
               state={phone}
               setState={setPhone}
+              placeHolder="11991953598"
             />
             <InputRegistration
               label="Adress"
               state={adress}
               setState={setAdress}
+              placeHolder="Rua 99, numero X - SP"
             />
             <InputRegistration
               label="Email"
               state={email}
               setState={setEmail}
+              placeHolder="contato@email.com"
             />
           </SafeAreaView>
 
